@@ -1,0 +1,43 @@
+default:
+    extensions:
+        Behat\MinkExtension\Extension:
+            base_url: http://localhost:8001/app_test.php/
+            default_session: 'selenium2'
+            selenium2:
+#            browser: chrome
+#            capabilities:
+#              chrome:
+#                 switches:
+#                 - "--test-type"
+#                 - "--load-extension=%behat.paths.base%/path to folder of extension"
+#                 - "--allow-running-insecure-content"
+              browser: firefox
+              capabilities: { "platform": "WINDOWS", "browserName": "firefox", 'firefox': {'profile':'/Users/artem-chechoro/timetrack/art3.zip'} }
+            goutte: ~
+            show_cmd: firefox %s
+#            show_cmd: chrome %s
+            files_path: %behat.paths.base%/src/TimeTrack/FrontendBundle/Features/FilesToUpload/
+
+        Behat\Symfony2Extension\Extension:
+            mink_driver: true
+
+#Also you can use different profiles, like as:
+
+#chrome:
+ #    extensions:
+  #       Behat\MinkExtension\Extension:
+   #           selenium2:
+    #            browser: chrome
+     #           capabilities:
+      #              chrome:
+       #                 switches:
+        #                    - "--test-type"
+         #                   - "--load-extension=%behat.paths.base%/browser/chrome"
+          #                  - "--allow-running-insecure-content"
+
+#firefox:
+ #    extensions:
+  #       Behat\MinkExtension\Extension:
+   #          selenium2:
+    #          browser: firefox
+     #         capabilities: { "platform": "WINDOWS", "browserName": "firefox", 'firefox': {'profile':'~/server/timetrack/FFprofiles/art.zip'} }
